@@ -1,5 +1,6 @@
 :root {
   --azul-principal: rgb(0, 125, 241);
+  --azul-oscuro: rgb(0, 78, 150);
 }
 
 h1, h2, h3 {
@@ -126,3 +127,50 @@ button:disabled {
 .align-center {
   align-items: center;
 }
+
+/*-------------TABLES-------------*/
+
+.present-list {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.present-list td, .present-list th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.present-list th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: black;
+  color: white;
+}
+
+.action-button {
+  display: block;
+  background-color: white;
+  color: var(--azul-principal);
+  border: var(--azul-principal) 1px solid;
+}
+
+.action-button:hover {
+  background-color: var(--azul-principal);
+  color: white;
+}
+
+.delete-present:hover {
+  background-color: red;
+  color: white;
+}
+
+.delete-present {
+  color: red;
+  border: red 1px solid;
+}
+
+
+.present-list tr:nth-child(even){background-color: #f9f9f9;}
+
+.present-list tr:hover {background-color: #eee;}
