@@ -41,7 +41,7 @@ let ListPresentsComponent = (props) => {
     }
 
     return (
-        <div className="item-list">
+        <div>
             <h2>My presents</h2>
             {message != "" && <p className="error">{message}</p> }
             <table className="present-list">
