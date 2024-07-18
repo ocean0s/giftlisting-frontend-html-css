@@ -40,21 +40,6 @@ let ListPresentsComponent = (props) => {
         navigate("/presents/edit/" + id)
     }
 
-    // let columns = [
-    //     { title: "Name", dataIndex: "name" },
-    //     { title: "Description", dataIndex: "description" },
-    //     { title: "URL", dataIndex: "url"},
-    //     { title: "Price", dataIndex: "price", render: (p) => (p + " €") },
-    //     { title: "Chosen by", dataIndex: "chosenBy", render: (c) => (c == null ? "No one yet" : c) },
-    //     { title: "Actions", dataIndex: "id",
-    //         render: (id) => (
-    //             <>
-    //                 <Button danger style={{margin: "4px"}} onClick={() => deletePresent(id)}>Delete</Button>
-    //                 <Button style={{margin: "4px"}} onClick={() => editPresent(id)}>Edit</Button>
-    //             </>)
-    //      },
-    // ]
-
     return (
         <div className="item-list">
             <h2>My presents</h2>
@@ -82,17 +67,7 @@ let ListPresentsComponent = (props) => {
                     </tr>
                 )}
             </table>
-        </div> // TODO add better table, classes do not exist yet
-            // { presents.map( p => 
-            //     <div className="item">
-            //         <h3>{p.name}</h3>
-            //         <p>{p.description}</p>
-            //         <p>{p.url}</p>
-            //         <p>{p.price + " €"}</p>
-            //         <p>{p.chosenBy == null ? "No one yet" : p.chosenBy }</p>
-            //         <button className="action-button delete-present" onClick={() => deletePresent(p.id)}>Delete</button>
-            //         <button className="action-button" onClick={() => editPresent(p.id)}>Edit</button>
-            //     </div>
+        </div> 
     )
 }
 

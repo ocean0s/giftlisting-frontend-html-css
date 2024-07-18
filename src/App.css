@@ -146,12 +146,19 @@ button:disabled {
   width: 100%;
 }
 
-.present-list td, .present-list th {
+.present-info {
+  border-collapse: collapse;
+  min-width: 300px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.present-list td, .present-list th, .present-info td, .present-info th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.present-list th {
+.present-list th, .present-info th{
   padding-top: 8px;
   padding-bottom: 8px;
   background-color: black;
@@ -184,3 +191,9 @@ button:disabled {
 .present-list tr:nth-child(even){background-color: #f9f9f9;}
 
 .present-list tr:hover {background-color: #eee;}
+
+/*------------WELCOME PARAGRAPH--------------*/
+
+.welcome-p {
+  text-align: center;
+}
