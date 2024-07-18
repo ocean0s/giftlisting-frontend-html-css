@@ -9,6 +9,7 @@ import EditPresentComponent from "./Components/EditPresentComponent";
 import FriendsComponent from "./Components/FriendsComponent";
 import GiftPresentComponent from "./Components/GiftPresentComponent";
 import IndexComponent from "./Components/IndexComponent";
+import "./App.css";
 
 function App() {
   let [notification, setNotification] = useState("")
