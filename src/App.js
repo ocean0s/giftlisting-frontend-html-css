@@ -11,13 +11,20 @@ import GiftPresentComponent from "./Components/GiftPresentComponent";
 import IndexComponent from "./Components/IndexComponent";
 
 function App() {
-
+  let [notification, setNotification] = useState("")
   let [login, setLogin] = useState(false)
   let navigate = useNavigate()
 
   useEffect( () => {
     checkLogin()
   }, [])
+
+  let createNotification = (msg) => {
+    setNotification(msg)
+    setTimeout(() => {
+      setNotification("")
+    }, 3000)
+  }
 
   let checkLogin = async () => {
     let apiKey = localStorage.getItem("apiKey")
