@@ -52,6 +52,7 @@ function App() {
   }
 
   return (
+    <>
     <div className="main-container">
       <header>
         <nav>
@@ -101,10 +102,11 @@ function App() {
           }></Route>
         </Routes>
       </main>
+    </div>
       <footer>
         <p>Presents App &copy;</p>
       </footer>
-    </div>
+      </>
   );
 }
 
