@@ -1,7 +1,11 @@
+/*-----------VARIABLES-------------*/
+
 :root {
   --azul-principal: rgb(0, 125, 241);
   --azul-oscuro: rgb(0, 78, 150);
 }
+
+/*-----------GENERAL-------------*/
 
 h1, h2, h3 {
   text-align: center;
@@ -22,6 +26,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+footer {
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 1px;
+  min-height: 0;
+}
+
+main {
+  min-height: 75vh;
+  padding: 10px 20px;
+}
+
+/*-----------NAVBAR-------------*/
 
 .navbar {
   list-style-type: none;
@@ -49,22 +67,8 @@ body {
   background-color: var(--azul-principal)
 }
 
-footer {
-  background-color: whitesmoke;
-  text-align: center;
-  padding: 1px;
-  min-height: 0;
-}
 
-main {
-  min-height: 75vh;
-  padding: 10px 20px;
-}
-
-.error {
-  color: red;
-  font-size: small;
-}
+/*-----------NOTIFICATION-------------*/
 
 .notification {
   position: relative;
@@ -83,6 +87,13 @@ main {
   font-size: 14px;
   color: #999;
   cursor: pointer;
+}
+
+/*-----------FORMS-------------*/
+
+.error {
+  color: red;
+  font-size: small;
 }
 
 .center-box {
@@ -133,7 +144,6 @@ button:disabled {
 .present-list {
   border-collapse: collapse;
   width: 100%;
-  border-radius: 10px;
 }
 
 .present-list td, .present-list th {
