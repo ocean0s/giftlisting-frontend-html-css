@@ -118,3 +118,11 @@ button:disabled {
   background-color: #999;
   cursor: not-allowed;
 }
+
+.http-input {
+  padding-right: 6px;
+}
+
+.align-center {
+  align-items: center;
+}
