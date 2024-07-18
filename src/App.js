@@ -51,8 +51,59 @@ function App() {
   }
 
   return (
-    <>
-    </>
+    <div className="main-container">
+      <header>
+        <nav>
+          <ul className="navbar">
+            <li><Link to="/">Index</Link></li>
+            {!login && <li><Link to="/register">Register</Link></li>}
+            {!login && <li><Link to="/login">Login</Link></li>}
+            {login && <li><Link to="/presents">Presents</Link></li>}
+            {login && <li><Link to="/presents/create">Create a present</Link></li>}
+            {login && <li><Link to="/friends">Friends</Link></li>}
+            {login && <li><Link to="/presents/friends">Gift a friend</Link></li>}
+            {login && <li><Link to="#" onClick={disconnect} >Disconnect</Link></li>}
+          </ul>
+        </nav>
+        {notification != "" && (
+        <div className='notification'>
+          {notification}
+          <span className='close-btn' onClick={() => setNotification("")}>X</span>
+        </div>
+      )}
+      </header>
+      <main>
+        <Routes>
+          <Route path="/register" element={
+            <CreateUserComponent createNotification={createNotification}/>
+          }></Route>
+          <Route path="/login" element={
+            <LoginUserComponent createNotification={createNotification} setLogin={setLogin}/>
+          }></Route>
+          <Route path="/" element={
+            <IndexComponent login={login}/>
+          }></Route>
+          <Route path="/presents" element={
+            <ListPresentsComponent createNotification={createNotification}/>
+          }></Route>
+          <Route path="/presents/create" element={
+            <CreatePresentComponent createNotification={createNotification}/>
+          }></Route>
+          <Route path="/presents/edit/:id" element={
+            <EditPresentComponent createNotification={createNotification}/>
+          }></Route>
+          <Route path="/friends" element={
+            <FriendsComponent createNotification={createNotification}/>
+          }></Route>
+          <Route path="/presents/friends" element={
+            <GiftPresentComponent createNotification={createNotification}/>
+          }></Route>
+        </Routes>
+      </main>
+      <footer>
+        <p>Presents App &copy;</p>
+      </footer>
+    </div>
   );
 }
 
