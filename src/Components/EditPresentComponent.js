@@ -42,12 +42,14 @@ let EditPresentComponent = (props) => {
             newError.description = "Description cannot be empty"
         if (item.name != undefined && item.name == "")
             newError.name = "Name cannot be empty"
+        if (item.listName != undefined && item.listName == "")
+            newError.listName = "List name cannot be empty"
         if ((item.price != undefined && isNaN(item.price)) || (!isNaN(item.price) && parseFloat(item.price) <= 0))
             newError.price = "Price has to be a positive number"
         setError(newError)
-        if ((newError.url != undefined || newError.description != undefined || newError.name != undefined || newError.price != undefined)
-             || item.url == undefined || item.description == undefined || item.name == undefined || item.price == undefined)
-            setDisabled(true)
+        if ((newError.url != undefined || newError.description != undefined || newError.name != undefined || newError.price != undefined || newError.listName != undefined)
+            || item.url == undefined || item.description == undefined || item.name == undefined || item.price == undefined || item.listName == undefined)
+           setDisabled(true)
         else
             setDisabled(false)
     }
@@ -60,12 +62,13 @@ let EditPresentComponent = (props) => {
                 url: item.url,
                 name: item.name,
                 description: item.description,
-                price: parseFloat(item.price)
+                price: parseFloat(item.price),
+                listName: item.listName
             })
         })
 
         if (response.ok) {
-            createNotification("Present created successfully")
+            createNotification("Present edited successfully")
             navigate("/presents")
         } else {
             let jsonData = await response.json()
@@ -110,6 +113,10 @@ let EditPresentComponent = (props) => {
                             <th>Chosen by</th>
                             <td>{itemOriginal.chosenBy == null ? "No one yet" : itemOriginal.chosenBy}</td>
                         </tr>
+                        <tr>
+                            <th>List</th>
+                            <td>{itemOriginal.listName}</td>
+                        </tr>
                     </table>
             </section>
             <section>
@@ -133,6 +140,10 @@ let EditPresentComponent = (props) => {
                         <input value={item.price} onChange={(e) => changeProperty("price",e)} type="number" placeholder="Price..."></input>
                     </div>
                     {error.price !== undefined && <p className="error">{error.price}</p>}
+                    <div className="form-group">
+                        <input value={item.listName} onChange={(e) => changeProperty("listName",e)} type="text" placeholder="List..."></input>
+                    </div>
+                    {error.listName !== undefined && <p className="error">{error.listName}</p>}
                     <button disabled={disabled} onClick={clickEdit}>Edit present</button>
                 </div>
             </section>
