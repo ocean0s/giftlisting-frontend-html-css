@@ -51,6 +51,7 @@ let ListPresentsComponent = (props) => {
                     <th>URL</th>
                     <th>Price</th>
                     <th>Chosen by</th>
+                    <th>List</th>
                     <th>Actions</th>
                 </tr>
                 { presents.map( p=> 
@@ -60,6 +61,7 @@ let ListPresentsComponent = (props) => {
                         <td>{p.url}</td>
                         <td>{p.price + " €"}</td>
                         <td>{p.chosenBy == null ? "No one yet" : p.chosenBy}</td>
+                        <td>{p.listName}</td>
                         <td>
                             <button className="action-button delete-present" onClick={() => deletePresent(p.id)}>Delete</button>
                             <button className="action-button" onClick={() => editPresent(p.id)}>Edit</button>

@@ -172,9 +172,19 @@ button:disabled {
   border: var(--azul-principal) 1px solid;
 }
 
+.action-button:disabled {
+  display: block;
+  color: #dedede;
+  border: none;
+}
+
 .action-button:hover {
   background-color: var(--azul-principal);
   color: white;
+}
+.action-button:disabled:hover {
+  background-color: #999;
+  color: #dedede;
 }
 
 .delete-present:hover {
@@ -192,8 +202,8 @@ button:disabled {
 
 .present-list tr:hover {background-color: #eee;}
 
-/*------------WELCOME PARAGRAPH--------------*/
+/*------------TEXT--------------*/
 
-.welcome-p {
+.centered {
   text-align: center;
 }
