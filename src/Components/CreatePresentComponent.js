@@ -10,6 +10,7 @@ let CreatePresentComponent = (props) => {
     let [name, setName] = useState()
     let [description, setDescription] = useState()
     let [price, setPrice] = useState()
+    let [listName, setListName] = useState()
 
     let navigate = useNavigate()
     let [disabled, setDisabled] = useState(true)
@@ -21,7 +22,7 @@ let CreatePresentComponent = (props) => {
 
     useEffect( () => {
         checkErrors()
-    }, [name, url, description, price])
+    }, [name, url, description, price, listName])
 
     let checkErrors = () => {
         let newError = {}
@@ -33,10 +34,12 @@ let CreatePresentComponent = (props) => {
             newError.name = "Name cannot be empty"
         if ((price != undefined && isNaN(price)) || (!isNaN(price) && parseFloat(price) <= 0))
             newError.price = "Price has to be a positive number"
+        if (listName != undefined && listName == "")
+            newError.listName = "List name cannot be empty"
         setError(newError)
-        if ((error.url != undefined || error.description != undefined || error.name != undefined || error.price != undefined)
-             || url == undefined || description == undefined || name == undefined || price == undefined)
-            setDisabled(true)
+        if ((newError.url != undefined || newError.description != undefined || newError.name != undefined || newError.price != undefined || newError.listName != undefined)
+            || url == undefined || description == undefined || name == undefined || price == undefined || listName == undefined)
+           setDisabled(true)
         else
             setDisabled(false)
     }
@@ -45,6 +48,7 @@ let CreatePresentComponent = (props) => {
     let changeName = (e) => { setName(e.currentTarget.value) }
     let changeDescription = (e) => { setDescription(e.currentTarget.value) }
     let changePrice = (e) => { setPrice(e.currentTarget.value) }
+    let changeListName = (e) => { setListName(e.currentTarget.value) }
 
     let clickCreate = async () => {
         let response = await fetch(backendURL+"/presents?apiKey=" + localStorage.getItem("apiKey"), {
@@ -54,7 +58,8 @@ let CreatePresentComponent = (props) => {
                 url: url,
                 name: name,
                 description: description,
-                price: parseFloat(price)
+                price: parseFloat(price),
+                listName: listName
             })
         })
 
@@ -95,6 +100,10 @@ let CreatePresentComponent = (props) => {
                  <input onChange={changePrice} type="number" placeholder="Price..."></input>
              </div>
              {error.price !== undefined && <p className="error">{error.price}</p>}
+             <div className="form-group">
+                 <input onChange={changeListName} type="text" placeholder="List..."></input>
+             </div>
+             {error.listName !== undefined && <p className="error">{error.listName}</p>}
              <button disabled={disabled} onClick={clickCreate}>Create present</button>
          </div>
      </div>
