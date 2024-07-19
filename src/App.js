@@ -10,6 +10,7 @@ import FriendsComponent from "./Components/FriendsComponent";
 import GiftPresentComponent from "./Components/GiftPresentComponent";
 import IndexComponent from "./Components/IndexComponent";
 import "./App.css";
+import ChosenGiftsComponent from "./Components/ChosenGiftsComponent";
 
 function App() {
   let [notification, setNotification] = useState("")
@@ -64,6 +65,7 @@ function App() {
             {login && <li><Link to="/presents/create">Create a present</Link></li>}
             {login && <li><Link to="/friends">Friends</Link></li>}
             {login && <li><Link to="/presents/friends">Gift a friend</Link></li>}
+            {login && <li><Link to="/presents/gifting">Presents I'm gifting</Link></li>}
             {login && <li><Link to="#" onClick={disconnect} >Disconnect</Link></li>}
           </ul>
         </nav>
@@ -91,6 +93,9 @@ function App() {
           <Route path="/presents/create" element={
             <CreatePresentComponent createNotification={createNotification}/>
           }></Route>
+          <Route path="/presents/gifting" element={
+              <ChosenGiftsComponent/>
+            }></Route>
           <Route path="/presents/edit/:id" element={
             <EditPresentComponent createNotification={createNotification}/>
           }></Route>
